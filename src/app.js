@@ -21,5 +21,8 @@ app.use("/v1",userPost)
 app.use("/v1",userComment)
 app.use("/v1",userBookmark)
 
+app.get("/",(req,res)=>{
+    res.send("<h1>hello</h>")
+})
 
 export default  app
