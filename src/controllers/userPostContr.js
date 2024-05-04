@@ -5,7 +5,7 @@ import cloudinaryUpload, {
   cloudinaryDestroy,
   cloudinaryUpdate,
 } from "../utils/cloudinary.js";
-
+// http://localhost:4000/v1//createpost
 export const createPost = async (req, res) => {
   try {
     const { userId, content } = req.body;
@@ -48,7 +48,7 @@ export const createPost = async (req, res) => {
     // res.status(201).json({ success: true, data: newPost });
   } catch (error) {
     console.error("Error creating post:", error);
-    res.status(500).json({ message: "Internal server error", success: false });
+    res.status(500).json({ message: "Internal server error 111", success: false });
   }
 };
 
