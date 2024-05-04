@@ -9,7 +9,7 @@ import cloudinaryUpload, {
 export const createPost = async (req, res) => {
   try {
     const { userId, content } = req.body;
-    res.send(req.files)
+    res.send(req.files,"hello")
     // const { userId, content } = req.body;
     // let img_url = "";
     // let video_url = "";
