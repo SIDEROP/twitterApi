@@ -10,8 +10,7 @@ import userBookmark from "./routes/user.Bookmark.Routes.js";
 
 let app = express();
 // using middlewares
-app.use(express.json());
-// app.use(express.json({limit:"20kb"}))
+app.use(express.json({limit:"20kb"}))
 app.use(cors({ origin: "*", credentials: true }));
 app.use(express.static("public"));
 app.use(cookieParser());

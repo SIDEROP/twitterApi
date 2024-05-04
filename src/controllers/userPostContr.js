@@ -9,41 +9,43 @@ import cloudinaryUpload, {
 export const createPost = async (req, res) => {
   try {
     const { userId, content } = req.body;
-    let img_url = "";
-    let video_url = "";
+    res.send(req.files)
+    // const { userId, content } = req.body;
+    // let img_url = "";
+    // let video_url = "";
 
-    const user = await User.findById(userId);
-    if (!user) {
-      return res
-        .status(404)
-        .json({ message: "User not found", success: false });
-    }
-    if (req.files && req.files.image) {
-      const imageFile = req.files.image[0];
-      const imageRes = await cloudinaryUpload(imageFile);
-      if (imageRes) {
-        img_url = imageRes.secure_url;
-      }
-    }
+    // const user = await User.findById(userId);
+    // if (!user) {
+    //   return res
+    //     .status(404)
+    //     .json({ message: "User not found", success: false });
+    // }
+    // if (req.files && req.files.image) {
+    //   const imageFile = req.files.image[0];
+    //   const imageRes = await cloudinaryUpload(imageFile);
+    //   if (imageRes) {
+    //     img_url = imageRes.secure_url;
+    //   }
+    // }
 
-    if (req.files && req.files.video) {
-      const videoFile = req.files.video[0];
-      const videoRes = await cloudinaryUpload(videoFile);
-      if (videoRes) {
-        video_url = videoRes.secure_url;
-      }
-    }
+    // if (req.files && req.files.video) {
+    //   const videoFile = req.files.video[0];
+    //   const videoRes = await cloudinaryUpload(videoFile);
+    //   if (videoRes) {
+    //     video_url = videoRes.secure_url;
+    //   }
+    // }
 
-    const newPost = await Post.create({
-      user: userId,
-      content,
-      img_url,
-      video_url,
-      likes: [],
-      comments: [],
-    });
+    // const newPost = await Post.create({
+    //   user: userId,
+    //   content,
+    //   img_url,
+    //   video_url,
+    //   likes: [],
+    //   comments: [],
+    // });
 
-    res.status(201).json({ success: true, data: newPost });
+    // res.status(201).json({ success: true, data: newPost });
   } catch (error) {
     console.error("Error creating post:", error);
     res.status(500).json({ message: "Internal server error", success: false });
